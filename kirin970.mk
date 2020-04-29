@@ -124,6 +124,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.hisi
 
+# Linker
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/linker/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Livedisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service-hisi
