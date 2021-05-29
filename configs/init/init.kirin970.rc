@@ -444,6 +444,8 @@ on fs
     symlink /dev/block/platform/ff3c0000.ufs/by-name/kernel /dev/block/platform/ff3c0000.ufs/by-name/recovery
     symlink /dev/block/platform/ff3c0000.ufs/by-name/dto /dev/block/platform/ff3c0000.ufs/by-name/dtbo
 
+    symlink /dev/block/platform/ff3c0000.ufs /dev/block/bootdevice
+
 on early-boot
 # add for GPU
 # AR0009KK8I j00181309 20180103 begin
