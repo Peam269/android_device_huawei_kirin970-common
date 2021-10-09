@@ -17,8 +17,8 @@ system_ext                                              /system_ext         ext4
 /dev/block/by-name/patch                                /metadata           ext4      rw,nosuid,nodev,noatime,data=ordered                                                wait,first_stage_mount,formattable,check
 /dev/block/by-name/misc                                 /misc               emmc      defaults                                                                            defaults
 
-/devices/hi_mci.1/mmc_host/mmc1/*                       auto                auto      defaults                                                                            voldmanaged=sdcard:auto,noemulatedsd
-/devices/platform/hi_mci.1/mmc_host/mmc1/*              auto                auto      defaults                                                                            voldmanaged=sdcard:auto,noemulatedsd
+/devices/hi_mci.1/mmc_host/mmc1/*                       auto                auto      defaults                                                                            voldmanaged=sdcard:auto,noemulatedsd,encryptable=userdata
+/devices/platform/hi_mci.1/mmc_host/mmc1/*              auto                auto      defaults                                                                            voldmanaged=sdcard:auto,noemulatedsd,encryptable=userdata
 /devices/hisi_usb@ff200000/ff100000.dwc3/*              auto                auto      defaults                                                                            voldmanaged=usbotg:auto
 /devices/platform/hisi_usb@ff200000/ff100000.dwc3/*     auto                auto      defaults                                                                            voldmanaged=usbotg:auto
 /devices/platform/e7f00000.hifi_usb/*                   auto                auto      defaults                                                                            voldmanaged=usbotg:auto
