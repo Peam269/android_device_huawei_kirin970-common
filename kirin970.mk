@@ -41,8 +41,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service
+    android.hardware.bluetooth@1.1-service
 
 # Camera
 PRODUCT_PACKAGES += \
