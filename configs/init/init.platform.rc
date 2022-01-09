@@ -23,7 +23,6 @@ on fs
     restorecon       /sys/class/leds/torch/flash_thermal_protect
 
 on post-fs
-    sys_wp_init_action
     start storage_info
 
 on post-fs-data
@@ -385,9 +384,6 @@ on boot
     chown system system /dev/acm
 #wangning 00384503 20171113 AR0009KSSB end
 
-on property:sys.printservice=*
-    printservice ${sys.printservice}
-
 on property:vold.decrypt=trigger_reset_main
     class_reset main
     class_reset late_start
@@ -425,11 +421,7 @@ on nonencrypted
     trigger start_latestart_class
     trigger data_ready
 
-on verify_cust_oeminfo_action
-    verify_cust_oeminfo
-
 on data_ready
-    verify_cust_oeminfo
     write /proc/post-fs-data 1
     write /proc/apanic_console 1
 
@@ -468,7 +460,7 @@ service hiscoutmanager /system/vendor/bin/hiscoutmanager
 ## vowifi iked defalut start
 ## Service definition
 service iked /system/vendor/bin/iked
-    interface vendor.huawei.hardware.iked@1.0::IIkedDevice default
+#    interface vendor.huawei.hardware.iked@1.0::IIkedDevice default
     class late_start
     user root
 	disabled

@@ -23,8 +23,6 @@ on early-boot
     write /sys/block/dm-0/queue/read_ahead_kb 2048
 	chown system system /sys/block/sdd/queue/usr_ctrl
 
-    # Update dm-verity state and set partition.*.verified properties
-    verity_update_state
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -39,9 +37,6 @@ on early-boot
     chown system system /sys/class/irda/irda_chip/ir_chip_type
 
 on init
-    # Load persistent dm-verity state
-    verity_load_state
-
     #for cpuidle low power mode
     chown system system /sys/devices/system/cpu/cpuidle/lp_mode
     chmod 660 /sys/devices/system/cpu/cpuidle/lp_mode
@@ -433,7 +428,6 @@ on fs
 
     mount_all /vendor/etc/fstab.${ro.hardware}
 
-    #mount_all_patch /patch_hw/fstab.patch_step1
     restorecon /splash2
     chmod 775 /splash2
     chown root system /splash2
@@ -555,8 +549,6 @@ on boot
 
     chown system system /sys/class/leds/lcd_backlight0/brightness
     chmod 644 /sys/class/leds/lcd_backlight0/brightness
-
-    chmod 755 /system/bin/busybox
 
 #pmic_record_log
     write /sys/kernel/pmic_mntn/pmic_exch 1
