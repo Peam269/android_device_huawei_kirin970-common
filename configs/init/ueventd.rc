@@ -87,7 +87,7 @@
 
 /dev/ttyHwGS1				0660	root	system
 
-/dev/dsm                            0660  system    dsm
+/dev/dsm                            0664  system    system
 /dev/usb_pcinfo_common              0660  root      usb
 
 /dev/block/mmcblk0p1                            0660    system  system
