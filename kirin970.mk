@@ -52,6 +52,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5.vendor \
     libstdc++.vendor
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images_vendor
+
 # ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore
@@ -91,8 +95,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
+    android.hardware.health-service.hisi \
+    android.hardware.health-service.hisi-recovery
 
 # HIDL
 PRODUCT_PACKAGES += \
