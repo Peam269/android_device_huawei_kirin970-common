@@ -10,6 +10,9 @@ COMMON_PATH := device/huawei/kirin970-common
 ## Inherit common vendor blobs
 $(call inherit-product, vendor/huawei/kirin970-common/kirin970-common-vendor.mk)
 
+## Setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
 # Audio
 $(call soong_config_set,android_hardware_audio,run_64bit,true)
 
