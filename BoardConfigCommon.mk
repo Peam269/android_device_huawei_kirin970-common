@@ -71,6 +71,9 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # Platform
 TARGET_BOARD_PLATFORM := kirin970
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/configs/init/fstab.kirin970
+
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := \
     3rdmodem \
