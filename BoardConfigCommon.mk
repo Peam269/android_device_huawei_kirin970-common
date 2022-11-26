@@ -114,3 +114,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
 
 # SELinux
 include device/hisi/sepolicy/SEPolicy.mk
+
+# Vendor
+VENDOR_SECURITY_PATCH := 2022-05-01 # CLT-L29 102.0.0.225(C432E5R1P1)
