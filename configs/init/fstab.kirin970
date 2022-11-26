@@ -8,6 +8,8 @@ vendor                                                  /vendor             ext4
 odm                                                     /odm                ext4      ro,errors=panic                                                                     wait,logical,first_stage_mount
 system_ext                                              /system_ext         ext4      ro,barrier=1                                                                        wait,logical,first_stage_mount
 
+/dev/block/by-name/kernel                               /boot               emmc      defaults                                                                            defaults
+/dev/block/by-name/recovery_ramdisk                     /recovery           emmc      defaults                                                                            defaults
 /dev/block/by-name/splash2                              /splash2            ext4      rw,nosuid,nodev,noatime,data=ordered,context=u:object_r:splash2_data_file:s0        wait,nofail
 /dev/block/by-name/userdata                             /data               f2fs      nosuid,nodev,noatime,discard,inline_data,inline_xattr                               wait,check,reservedsize=20M
 /dev/block/by-name/cache                                /cache              ext4      rw,nosuid,nodev,noatime,data=ordered                                                wait,check,nofail
@@ -21,3 +23,4 @@ system_ext                                              /system_ext         ext4
 /devices/platform/e7f00000.hifi_usb/*                   auto                auto      defaults                                                                            voldmanaged=usbotg:auto
 
 /dev/block/zram0                                        none                swap      defaults                                                                            zramsize=536870912
+
