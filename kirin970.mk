@@ -7,6 +7,9 @@
 ## Common Path
 COMMON_PATH := device/huawei/kirin970-common
 
+## Inherit common vendor blobs
+$(call inherit-product, vendor/huawei/kirin970-common/kirin970-common-vendor.mk)
+
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
