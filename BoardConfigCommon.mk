@@ -75,6 +75,7 @@ TARGET_BOARD_PLATFORM := kirin970
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/configs/init/fstab.kirin970
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := hardware/hisi/releasetools
