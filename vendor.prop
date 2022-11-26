@@ -1,0 +1,42 @@
+#
+# vendor.prop for kirin970-common
+#
+
+# Bluetooth
+ro.bt.bdaddr_path=/data/vendor/bluedroid/macbt
+
+# Graphics
+ro.opengles.version=196610
+
+# Huawei
+ro.vendor.config.hw_music_lp=true
+ro.vendor.config.music_lp_vol=true
+ro.vendor.config.board_ipa=true
+ro.vendor.config.perfgenius=true
+ro.vendor.tui.service=true
+persist.rog_feature=1
+
+# Media
+persist.kirin.media.offload.enable=true
+persist.kirin.media.hires.enable=true
+persist.kirin.media.lowlatency.enable=false
+persist.kirin.media.usbvoice.enable=true
+persist.kirin.media.usbvoice.name=USB-Audio - HUAWEI GLASS
+
+# Netflix
+ro.netflix.bsp_rev=KIRIN970-15244-1
+
+# Platform
+ro.kirin.product.platform=kirin970
+ro.comp.chipset_version=Chipset-boston 102.0.0.001(1ISW)
+
+# Sensors
+use_sensorhub_labc=false
+
+# Touch
+persist.kirin.touch_vsync_opt=1
+persist.vendor.touch_move_opt=1
+persist.vendor.touchevent_opt=1
+
+# VoLTE
+ro.config.hw_volte_on=true
