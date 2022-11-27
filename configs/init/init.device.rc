@@ -354,13 +354,13 @@ on boot
     chmod 0750 /sys/devices/platform/huawei,lcd_config
     chown system system /sys/bus/platform/devices
     chmod 0750 /sys/bus/platform/devices
-    chwon system system /sys/bus/platform/drivers/lcd_kit_mipi_panel
+    chown system system /sys/bus/platform/drivers/lcd_kit_mipi_panel
     chmod 0750 /sys/bus/platform/drivers/lcd_kit_mipi_panel
-    chwon system system /sys/devices/platform/hisilicon-hisi-ldo-ldo4/regulator/regulator.1
+    chown system system /sys/devices/platform/hisilicon-hisi-ldo-ldo4/regulator/regulator.1
     chmod 0750 /sys/devices/platform/hisilicon-hisi-ldo-ldo4/regulator/regulator.1
-    chwon system system /sys/devices/platform/hisilicon-hisi-ldo-ldo24/regulator/regulator.10
+    chown system system /sys/devices/platform/hisilicon-hisi-ldo-ldo24/regulator/regulator.10
     chmod 0750 /sys/devices/platform/hisilicon-hisi-ldo-ldo24/regulator/regulator.10
-    chwon system system /sys/devices/platform/hisilicon-hisi-ldo-ldo29/regulator/regulator.11
+    chown system system /sys/devices/platform/hisilicon-hisi-ldo-ldo29/regulator/regulator.11
     chmod 0750 /sys/devices/platform/hisilicon-hisi-ldo-ldo29/regulator/regulator.11
 ## Property trigger
 #on property:ro.sample=*

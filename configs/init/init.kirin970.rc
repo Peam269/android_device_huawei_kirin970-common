@@ -1,4 +1,4 @@
-hex/ Copyright (C) 2008 The Android Open Source Project
+# Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -393,14 +393,6 @@ on property:sys.boot_completed=1 && property:ro.vendor.user_hota_update=1
     write /dev/kmsg "first boot completed, user_hota_update = 1. free cpufreq limit."
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 4294967295
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 4294967295
-
-on property:ro.vendor.user_hota_update=1 && property:odm.thermal.hw_mc.hardware.upgrade_thermal_control=1
-    limit_soc_thermal_temperature /sys/class/thermal/thermal_zone0/trip_point_1_temp
-    write /dev/kmsg "first boot, user_hota_update = 1. change ipa control temp."
-
-on property:ro.vendor.user_hota_update=1 && property:odm.thermal.hw_mc.hardware.upgrade_thermal_control=1 && property:odm.thermal.hw_mc.hardware.upgrade_thermal_disable=1
-    restore_soc_thermal_temperature /sys/class/thermal/thermal_zone0/trip_point_1_temp
-    write /dev/kmsg "first boot, user_hota_update = 1. restore ipa control temp."
 
 on charger
     mount_all /vendor/etc/fstab.${ro.hardware}
@@ -914,9 +906,6 @@ service shex /system/bin/shex -p
 
 on data_ready
     exec u:r:blkcginit:s0 root root -- /vendor/bin/sh /vendor/etc/blkcg_init.sh 0 0
-
-on property:sys.userstorage_block=1
-    trigger_erecovery 2015
 
 service datarply /vendor/bin/data_replay
     user system
