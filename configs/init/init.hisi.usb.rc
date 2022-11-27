@@ -58,6 +58,9 @@ on init
 # set mtp device_type to Mobile Handset
     setprop sys.usb.mtp.device_type 3
 
+# set usb controller
+    setprop sys.usb.controller ff100000.dwc3
+
 on boot
     setprop sys.usb.configfs 1
 
