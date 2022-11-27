@@ -423,6 +423,8 @@ on charger
 
     write /sys/kernel/eas/boot_boost 0
 
+    class_start charger
+
 on fs
     # mount mtd partitions
 
@@ -1012,6 +1014,11 @@ service bugreport /system/bin/dumpstate -d -p -B -z \
         disabled
         oneshot
         keycodes 114 115 116
+
+service charger /system/bin/charger
+    class charger
+    critical
+    seclabel u:r:charger:s0
 
 on property:sys.conn_macs.ready=1
     # Bluetooth
