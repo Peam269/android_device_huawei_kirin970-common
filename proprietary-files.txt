@@ -868,7 +868,7 @@ vendor/etc/modemConfig/hids_ue_msg.cfg
 vendor/etc/modemConfig/mipi_sample.cfg
 vendor/etc/modemConfig/modemtool_ca.crt
 vendor/etc/modemConfig/modemtool_client.pem
-vendor/etc/modemConfig/observe_config_encryt.xml
+vendor/etc/modemConfig/observe_config_encryt.xml:vendor/etc/modemConfig/observe_config_encryt.bin
 vendor/etc/modemConfig/rcc_for_ssi_unlock.xml
 vendor/etc/modemConfig/ssi_sample.cfg
 vendor/modem/modem_fw/readme.txt

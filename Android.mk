@@ -34,6 +34,12 @@ $(VENDOR_NATIVE_PACKAGES_FIXUP): $(TARGET_OUT_VENDOR)/etc/native_packages.bin
 	@echo "Move native_packages.bin to native_packages.xml"
 	$(hide) mv $(TARGET_OUT_VENDOR)/etc/native_packages.bin $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS) $(VENDOR_NATIVE_PACKAGES_FIXUP)
+# modemConfig hack
+MODEM_CONFIG_FIXUP := $(TARGET_OUT_VENDOR)/etc/modemConfig/observe_config_encryt.xml
+$(MODEM_CONFIG_FIXUP): $(TARGET_OUT_VENDOR)/etc/modemConfig/observe_config_encryt.bin
+	@echo "Move observe_config_encryt.bin to observe_config_encryt.xml"
+	$(hide) mv $(TARGET_OUT_VENDOR)/etc/modemConfig/observe_config_encryt.bin $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS) $(MODEM_CONFIG_FIXUP) $(VENDOR_NATIVE_PACKAGES_FIXUP)
 
 endif
