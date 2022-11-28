@@ -10,6 +10,9 @@ COMMON_PATH := device/huawei/kirin970-common
 ## Inherit common vendor blobs
 $(call inherit-product, vendor/huawei/kirin970-common/kirin970-common-vendor.mk)
 
+## Project ID Quota
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 ## Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
