@@ -48,6 +48,9 @@ BOARD_MKBOOTIMG_ARGS := --header_version 1 --kernel_offset 0x00008000 --ramdisk_
 TARGET_KERNEL_CONFIG := merge_kirin970_defconfig
 TARGET_KERNEL_SOURCE := kernel/huawei/kirin970
 
+# Kernel Toolchain
+TARGET_KERNEL_LLVM_BINUTILS := false
+
 # Partitions
 BOARD_SUPER_PARTITION_SIZE := 5771362304
 BOARD_SUPER_PARTITION_GROUPS := huawei_dynamic_partitions
