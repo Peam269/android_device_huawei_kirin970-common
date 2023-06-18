@@ -418,7 +418,7 @@ on charger
 on fs
     # mount mtd partitions
 
-    mount_all /vendor/etc/fstab.${ro.hardware}
+    mount_all /vendor/etc/fstab.${ro.hardware} --early
 
     restorecon /splash2
     chmod 775 /splash2
@@ -436,6 +436,9 @@ on fs
     symlink /dev/block/platform/ff3c0000.ufs/by-name/dto /dev/block/platform/ff3c0000.ufs/by-name/dtbo
 
     symlink /dev/block/platform/ff3c0000.ufs /dev/block/bootdevice
+
+on late-fs
+    mount_all /vendor/etc/fstab.${ro.hardware} --late
 
 on early-boot
 # add for GPU

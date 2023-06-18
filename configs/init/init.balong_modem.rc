@@ -10,7 +10,7 @@ on post-fs
 on zygote-start
 	# When pureandroid test,The vold process will unmount mnt directory mounted partition ,
 	# so after the completion of the vold process started, mount_all modem partition and then boot modem.
-	mount_all /vendor/etc/fstab.modem --early
+	mount_all /vendor/etc/fstab.modem
 	write /sys/devices/platform/his_modem/modem_sysboot_start 1
 
 on boot
