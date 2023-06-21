@@ -82,3 +82,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     modem_log \
     sec_storage \
     splash2
+
+# SELinux
+include device/hisi/sepolicy/SEPolicy.mk
