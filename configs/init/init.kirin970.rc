@@ -214,28 +214,6 @@ on init
     write /sys/module/dm_bufio/parameters/max_cache_size_bytes 383385600
 
 #cpuset config
-    # Create cgroup mount points for process groups
-    mkdir /dev/cpuctl
-    mount cgroup none /dev/cpuctl cpu
-    chown system system /dev/cpuctl
-    chown system system /dev/cpuctl/tasks
-    chmod 0666 /dev/cpuctl/tasks
-    write /dev/cpuctl/cpu.shares 1024
-    write /dev/cpuctl/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/cpu.rt_period_us 1000000
-
-    mkdir /dev/cpuctl/limit
-    chown system system /dev/cpuctl/limit/tasks
-    chmod 0644 /dev/cpuctl/limit/tasks
-    write /dev/cpuctl/limit/cpu.shares 1024
-    write /dev/cpuctl/limit/cpu.rt_runtime_us 800000
-    write /dev/cpuctl/limit/cpu.rt_period_us 1000000
-
-    # sets up initial cpusets for ActivityManager
-    mkdir /dev/cpuset
-    mount cgroup none /dev/cpuset cpuset,cpuset_noprefix
-    mount cgroup none /dev/cpuset remount cpuset,blkio,cpuset_noprefix
-
     # this ensures that the cpusets are present and usable, but the device's
     # init.rc must actually set the correct cpus
     mkdir /dev/cpuset/foreground
