@@ -7,23 +7,6 @@ on init
     chmod 0770 /dev/nve0
     chown root system /dev/nve0
 
-# sets up initial workingset cgroup
-    mkdir /dev/workingset
-    mount cgroup none /dev/workingset nodev noexec nosuid workingset
-    mkdir /dev/workingset/monitor0
-    mkdir /dev/workingset/monitor1
-
-    chmod 0600 /dev/workingset/tasks
-    chmod 0600 /dev/workingset/monitor0/tasks
-    chmod 0600 /dev/workingset/monitor1/tasks
-    chmod 0600 /dev/workingset/cgroup.procs
-    chmod 0600 /dev/workingset/monitor0/cgroup.procs
-    chmod 0600 /dev/workingset/monitor1/cgroup.procs
-    chmod 0600 /dev/workingset/monitor0/workingset.state
-    chmod 0600 /dev/workingset/monitor1/workingset.state
-    chmod 0600 /dev/workingset/monitor0/workingset.data
-    chmod 0600 /dev/workingset/monitor1/workingset.data
-
 # sets up initial protectLru memcg
     mkdir /dev/memcg/protect_lru_1
     mkdir /dev/memcg/protect_lru_2
