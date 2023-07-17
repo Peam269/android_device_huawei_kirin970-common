@@ -263,7 +263,8 @@ PRODUCT_PACKAGES += \
 
 # VNDK
 PRODUCT_PACKAGES += \
-    libjsoncpp-v29
+    libjsoncpp-v29 \
+    libui-v28
 
 # Wifi
 PRODUCT_PACKAGES += \

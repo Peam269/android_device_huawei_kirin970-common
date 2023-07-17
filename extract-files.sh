@@ -60,6 +60,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        vendor/lib*/hw/hwcomposer.kirin970.so)
+            "${PATCHELF}" --replace-needed "libui.so" "libui-v28.so" "${2}"
+            ;;
         vendor/lib*/libhiview.so)
             "${PATCHELF}" --replace-needed "libjsoncpp.so" "libjsoncpp-v29.so" "${2}"
             ;;
