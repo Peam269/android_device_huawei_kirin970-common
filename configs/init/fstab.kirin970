@@ -24,4 +24,5 @@ system_ext                                              /system_ext         ext4
 /devices/platform/hisi_usb@ff200000/ff100000.dwc3/*     auto                auto      defaults                                                                            voldmanaged=usbotg:auto
 /devices/platform/e7f00000.hifi_usb/*                   auto                auto      defaults                                                                            voldmanaged=usbotg:auto
 
-/dev/block/zram0                                        none                swap      defaults                                                                            zramsize=536870912
+/dev/block/zram0                                        none                swap      defaults                                                                            zramsize=536870912,max_comp_streams=8
+
