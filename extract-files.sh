@@ -60,6 +60,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        vendor/etc/init/rild.rc)
+            sed -i '7i on property:sys.rilprops_ready=1\n    start vendor.ril-daemon\n' "${2}"
+            echo "    disabled" >> "${2}"
+            ;;
         vendor/lib*/hw/hwcomposer.kirin970.so)
             "${PATCHELF}" --replace-needed "libui.so" "libui-v28.so" "${2}"
             ;;
