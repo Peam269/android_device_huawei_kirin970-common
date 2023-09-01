@@ -297,6 +297,8 @@ on init
     chown system system /sys/kernel/promm/enable
     chown system system /sys/kernel/promm/priority
 
+    write /proc/sys/vm/page-cluster 0
+
 on property:sys.boot_completed=1
 #for ai_sched
     chown system  system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -392,6 +394,7 @@ on fs
     # mount mtd partitions
 
     mount_all /vendor/etc/fstab.${ro.hardware} --early
+    swapon_all /vendor/etc/fstab.${ro.hardware}
 
     restorecon /splash2
     chmod 775 /splash2
@@ -897,42 +900,6 @@ service datarply /vendor/bin/data_replay
 
 on property:service.bootanim.exit=1
     write /proc/balong/stats/boot_time 1
-
-on property:ro.boot.vendor.ddrsize=2
-    setprop ro.config.hw_ramSize 2097152
-    write /proc/sys/vm/page-cluster 0
-    write /sys/block/zram0/max_comp_streams 8
-    write /sys/block/zram0/comp_algorithm lz4
-    swapon_all fstab.zram1280m
-
-on property:ro.boot.vendor.ddrsize=3
-    setprop ro.config.hw_ramSize 3145728
-    write /proc/sys/vm/page-cluster 0
-    write /sys/block/zram0/max_comp_streams 8
-    write /sys/block/zram0/comp_algorithm lz4
-    swapon_all fstab.zram1536m
-
-on property:ro.boot.vendor.ddrsize=4
-    setprop ro.config.hw_ramSize 4194304
-    write /proc/sys/vm/page-cluster 0
-    write /sys/block/zram0/max_comp_streams 8
-    write /sys/block/zram0/comp_algorithm lz4
-    swapon_all fstab.zram2240m
-
-on property:ro.boot.vendor.ddrsize=6
-    setprop ro.config.hw_ramSize 6291456
-    write /proc/sys/vm/page-cluster 0
-    write /sys/block/zram0/max_comp_streams 8
-    write /sys/block/zram0/comp_algorithm lz4
-    swapon_all fstab.zram2800m
-    setprop persist.enable_task_snapshots true
-
-on property:ro.boot.vendor.ddrsize=8
-    setprop ro.config.hw_ramSize 8388608
-    write /proc/sys/vm/page-cluster 0
-    write /sys/block/zram0/max_comp_streams 8
-    write /sys/block/zram0/comp_algorithm lz4
-    swapon_all fstab.zram4096m
 
     # DTS2017112101475 w00180399 20171121 begin
     mkdir /splash2/sim 0770 root system
