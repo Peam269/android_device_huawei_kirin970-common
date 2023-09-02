@@ -220,8 +220,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power-service.hisi-libperfmgr
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -243,7 +245,10 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH) \
-    hardware/hisi
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/hisi \
+    hardware/hisi/power-libperfmgr
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
