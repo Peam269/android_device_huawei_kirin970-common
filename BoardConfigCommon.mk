@@ -117,8 +117,12 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     sec_storage \
     splash2
 
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /odm/hw_odm:/hw_odm
+
 # SELinux
 include device/hisi/sepolicy/SEPolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 
 # Vendor
 VENDOR_SECURITY_PATCH := 2022-05-01 # CLT-L29 102.0.0.225(C432E5R1P1)
