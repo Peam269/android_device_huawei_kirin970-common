@@ -1020,7 +1020,6 @@ service charger /system/bin/charger
     user system
     group system graphics input
     capabilities SYS_BOOT
-    critical
     seclabel u:r:charger:s0
 
 on property:sys.conn_macs.ready=1
