@@ -42,6 +42,10 @@ TARGET_USERIMAGES_USE_F2FS := true
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 
+# Init
+TARGET_INIT_VENDOR_LIB := //hardware/hisi:init_hisi
+TARGET_RECOVERY_DEVICE_MODULES := init_hisi
+
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/hisi/mkbootimg.mk

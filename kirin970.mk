@@ -88,6 +88,9 @@ PRODUCT_PACKAGES += \
    libhwbinder.vendor
 
 # Init
+PRODUCT_PACKAGES += \
+    hisi_init
+
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/fstab.kirin970:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.kirin970 \
     $(COMMON_PATH)/configs/init/fstab.kirin970:$(TARGET_COPY_OUT_RAMDISK)/fstab.kirin970 \
