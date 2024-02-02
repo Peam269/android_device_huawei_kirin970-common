@@ -79,6 +79,9 @@ function blob_fixup() {
         vendor/lib64/libSmartAE.so)
             "${SIGSCAN}" -p "9F 02 0A B9" -P "1F 20 03 D5" -f "${2}"
             ;;
+        vendor/lib*/libril-hisi.so)
+            "${PATCHELF}" --set-soname "libril-hisi.so" "${2}"
+            ;;
     esac
 }
 
