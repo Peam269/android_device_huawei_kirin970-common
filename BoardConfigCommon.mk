@@ -36,6 +36,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Kernel
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := hardware/hisi/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00078000
 BOARD_KERNEL_CMDLINE := loglevel=4 page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538
 BOARD_KERNEL_IMAGE_NAME := Image.gz
@@ -73,6 +75,9 @@ TARGET_BOARD_PLATFORM := kirin970
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/configs/init/fstab.kirin970
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := hardware/hisi/releasetools
 
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := \
