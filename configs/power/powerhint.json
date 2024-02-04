@@ -136,6 +136,15 @@
             "ResetOnInit": true
         },
         {
+            "Name": "PMQoSCpuDmaLatency",
+            "Path": "/dev/cpu_dma_latency",
+            "Values": [
+                "44",
+                "100"
+            ],
+            "HoldFd": true
+        },
+        {
             "Name": "PowerHALMainState",
             "Path": "vendor.powerhal.state",
             "Values": [
@@ -229,6 +238,12 @@
             "Node": "FGSchedtuneBoost",
             "Duration": 5000,
             "Value": "100"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "PMQoSCpuDmaLatency",
+            "Duration": 5000,
+            "Value": "44"
         },
         {
             "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
