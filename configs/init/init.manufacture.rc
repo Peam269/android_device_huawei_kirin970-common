@@ -61,7 +61,7 @@ service oeminfo_nvm /vendor/bin/oeminfo_nvm_server
     group system readproc root
     critical
     ioprio rt 4
-    seclabel u:r:oeminfo_nvm:s0
+    seclabel u:r:vendor_hisi_oeminfo_nvm_server:s0
 
 service diagserver /vendor/bin/diagserver
     class main
