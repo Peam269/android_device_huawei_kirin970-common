@@ -50,7 +50,7 @@ TARGET_RECOVERY_DEVICE_MODULES := init_hisi
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/hisi/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00078000
-BOARD_KERNEL_CMDLINE := loglevel=4 page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := loglevel=4 page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.super_partition=super androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --header_version 1 --kernel_offset 0x00008000 --ramdisk_offset 0x37588000 --second_offset 0x00e88000 --tags_offset 0x37d88000
