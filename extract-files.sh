@@ -70,6 +70,9 @@ function blob_fixup() {
         vendor/lib*/libhiview.so)
             "${PATCHELF}" --replace-needed "libjsoncpp.so" "libjsoncpp-v29.so" "${2}"
             ;;
+        vendor/lib64/libSmartAE.so)
+            "${SIGSCAN}" -p "9F 02 0A B9" -P "1F 20 03 D5" -f "${2}"
+            ;;
     esac
 }
 
