@@ -800,6 +800,14 @@ vendor/etc/ir_config
 -vendor/lib64/libhisi-set_regs.so
 -vendor/lib64/libir_driver_init.so
 
+# Keystore
+-vendor/bin/hw/android.hardware.keymaster@3.0-service;MODULE=android.hardware.keymaster@3.0-service.hisi
+vendor/etc/init/android.hardware.keymaster@3.0-service.rc
+-vendor/lib/hw/android.hardware.keymaster@3.0-impl.so;MODULE=android.hardware.keymaster@3.0-impl.hisi
+-vendor/lib/hw/keystore.kirin970.so
+-vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so;MODULE=android.hardware.keymaster@3.0-impl.hisi
+-vendor/lib64/hw/keystore.kirin970.so
+
 # Media
 -vendor/bin/hw/vendor.huawei.hardware.graphics.mediacomm@2.1-service
 vendor/etc/init/vendor.huawei.hardware.graphics.mediacomm@2.1-service.rc
