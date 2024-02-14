@@ -703,6 +703,12 @@ vendor/firmware/Total.wdk
 vendor/firmware/ufs_emer_fw.bin
 vendor/firmware/wifi_cfg
 
+# Gatekeeper
+-vendor/bin/hw/android.hardware.gatekeeper@1.0-service;MODULE=android.hardware.gatekeeper@1.0-service.hisi
+vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
+-vendor/lib/hw/gatekeeper.kirin970.so
+-vendor/lib64/hw/gatekeeper.kirin970.so
+
 # GPS
 -vendor/bin/hw/vendor.huawei.hardware.gnss@1.0-service
 -vendor/bin/gnss_control_hisi
