@@ -11,7 +11,7 @@ system_ext                                              /system_ext         ext4
 /dev/block/by-name/kernel                               /boot               emmc      defaults                                                                            defaults
 /dev/block/by-name/recovery_ramdisk                     /recovery           emmc      defaults                                                                            defaults
 /dev/block/by-name/splash2                              /splash2            ext4      rw,nosuid,nodev,noatime,data=ordered,context=u:object_r:splashtwo_file:s0           wait,nofail
-/dev/block/by-name/userdata                             /data               f2fs      nosuid,nodev,noatime,discard,inline_data,inline_xattr                               latemount,wait,check,reservedsize=20M,quota
+/dev/block/by-name/userdata                             /data               f2fs      nosuid,nodev,noatime,discard,inline_data,inline_xattr                               latemount,wait,check,fileencryption=aes-256-xts:aes-256-cts,reservedsize=20M,quota
 /dev/block/by-name/cache                                /cache              ext4      rw,nosuid,nodev,noatime,data=ordered                                                wait,check,nofail
 /dev/block/by-name/hisee_fs                             /mnt/hisee_fs       ext4      ro,barrier=1,context=u:object_r:hisee_file:s0                                       wait,check,notrim,nofail
 /dev/block/by-name/patch                                /metadata           ext4      rw,nosuid,nodev,noatime,data=ordered                                                wait,first_stage_mount,formattable,check
