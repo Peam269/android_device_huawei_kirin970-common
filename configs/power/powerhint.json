@@ -1,6 +1,141 @@
 {
     "Nodes": [
         {
+            "Name": "CPULittleClusterMaxFreq",
+            "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
+            "Values": [
+                "1844000",
+                "1690000",
+                "1556000",
+                "1402000",
+                "1210000",
+                "1018000",
+                "509000"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPULittleClusterMinFreq",
+            "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
+            "Values": [
+                "1844000",
+                "1690000",
+                "1556000",
+                "1402000",
+                "1210000",
+                "1018000",
+                "509000"
+            ],
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPUBigClusterMaxFreq",
+            "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
+            "Values": [
+                "2362000",
+                "2093000",
+                "1863000",
+                "1652000",
+                "1498000",
+                "1364000",
+                "1210000",
+                "1018000",
+                "682000"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "CPUBigClusterMinFreq",
+            "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq",
+            "Values": [
+                "2362000",
+                "2093000",
+                "1863000",
+                "1652000",
+                "1498000",
+                "1364000",
+                "1210000",
+                "1018000",
+                "682000"
+            ],
+            "ResetOnInit": true
+        },
+        {
+            "Name": "DDRMaxFreq",
+            "Path": "/sys/class/devfreq/ddrfreq/max_freq",
+            "Values": [
+                "1866000000",
+                "1244000000",
+                "830000000",
+                "415000000"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "DDRMinFreq",
+            "Path": "/sys/class/devfreq/ddrfreq/min_freq",
+            "Values": [
+                "1866000000",
+                "1244000000",
+                "830000000",
+                "415000000"
+            ],
+            "ResetOnInit": true
+        },
+        {
+            "Name": "GPUMaxFreq",
+            "Path": "/sys/class/devfreq/gpufreq/max_freq",
+            "Values": [
+		"767000000",
+                "667000000",
+                "550000000",
+                "415000000",
+                "332000000",
+                "237143000",
+                "150909000",
+                "103750000"
+            ],
+            "DefaultIndex": 0,
+            "ResetOnInit": true
+        },
+        {
+            "Name": "GPUMinFreq",
+            "Path": "/sys/class/devfreq/gpufreq/min_freq",
+            "Values": [
+		"767000000",
+                "667000000",
+                "550000000",
+                "415000000",
+                "332000000",
+                "237143000",
+                "150909000",
+                "103750000"
+            ],
+            "ResetOnInit": true
+        },
+        {
+            "Name": "TASchedtuneBoost",
+            "Path": "/dev/stune/top-app/schedtune.boost",
+            "Values": [
+                "100",
+                "50",
+                "10"
+            ],
+            "ResetOnInit": true
+        },
+        {
+            "Name": "FGSchedtuneBoost",
+            "Path": "/dev/stune/foreground/schedtune.boost",
+            "Values": [
+                "100",
+                "0"
+            ],
+            "ResetOnInit": true
+        },
+        {
             "Name": "PowerHALMainState",
             "Path": "vendor.powerhal.state",
             "Values": [
@@ -26,20 +161,75 @@
                 ""
             ],
             "Type": "Property"
-        },
-        {
-            "Name": "PowerHALPerfProfileState",
-            "Path": "vendor.powerhal.perf_profile",
-            "Values": [
-                "POWER_SAVE",
-                "BIAS_POWER_SAVE",
-                "BIAS_PERFORMANCE",
-                "HIGH_PERFORMANCE"
-            ],
-            "Type": "Property"
         }
     ],
     "Actions": [
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 0,
+            "Value": "1210000"
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 0,
+            "Value": "2093000"
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "TASchedtuneBoost",
+            "Duration": 0,
+            "Value": "50"
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "DDRMinFreq",
+            "Duration": 0,
+            "Value": "1244000000"
+        },
+        {
+            "PowerHint": "INTERACTION",
+            "Node": "GPUMinFreq",
+            "Duration": 0,
+            "Value": "550000000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPULittleClusterMinFreq",
+            "Duration": 5000,
+            "Value": "1844000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "CPUBigClusterMinFreq",
+            "Duration": 5000,
+            "Value": "2362000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "DDRMinFreq",
+            "Duration": 5000,
+            "Value": "1866000000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "GPUMinFreq",
+            "Duration": 5000,
+            "Value": "767000000"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "TASchedtuneBoost",
+            "Duration": 5000,
+            "Value": "100"
+        },
+        {
+            "PowerHint": "LAUNCH",
+            "Node": "FGSchedtuneBoost",
+            "Duration": 5000,
+            "Value": "100"
+        },
         {
             "PowerHint": "AUDIO_STREAMING_LOW_LATENCY",
             "Node": "PowerHALAudioState",
@@ -57,30 +247,6 @@
             "Node": "PowerHALRenderingState",
             "Duration": 0,
             "Value": "EXPENSIVE_RENDERING"
-        },
-        {
-            "PowerHint": "PROFILE_POWER_SAVE",
-            "Node": "PowerHALPerfProfileState",
-            "Duration": 0,
-            "Value": "POWER_SAVE"
-        },
-        {
-            "PowerHint": "PROFILE_BIAS_POWER_SAVE",
-            "Node": "PowerHALPerfProfileState",
-            "Duration": 0,
-            "Value": "BIAS_POWER_SAVE"
-        },
-        {
-            "PowerHint": "PROFILE_BIAS_PERFORMANCE",
-            "Node": "PowerHALPerfProfileState",
-            "Duration": 0,
-            "Value": "BIAS_PERFORMANCE"
-        },
-        {
-            "PowerHint": "PROFILE_HIGH_PERFORMANCE",
-            "Node": "PowerHALPerfProfileState",
-            "Duration": 0,
-            "Value": "HIGH_PERFORMANCE"
         }
     ]
 }
