@@ -801,11 +801,11 @@ vendor/etc/ir_config
 -vendor/lib64/libir_driver_init.so
 
 # Keystore
--vendor/bin/hw/android.hardware.keymaster@3.0-service;MODULE=android.hardware.keymaster@3.0-service.hisi
+-vendor/bin/hw/android.hardware.keymaster@3.0-service:vendor/bin/hw/android.hardware.keymaster@3.0-service.hisi
 vendor/etc/init/android.hardware.keymaster@3.0-service.rc
--vendor/lib/hw/android.hardware.keymaster@3.0-impl.so;MODULE=android.hardware.keymaster@3.0-impl.hisi
+-vendor/lib/hw/android.hardware.keymaster@3.0-impl.so:vendor/lib/hw/android.hardware.keymaster@3.0-impl.hisi.so
 -vendor/lib/hw/keystore.kirin970.so
--vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so;MODULE=android.hardware.keymaster@3.0-impl.hisi
+-vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so:vendor/lib64/hw/android.hardware.keymaster@3.0-impl.hisi.so
 -vendor/lib64/hw/keystore.kirin970.so
 
 # Media

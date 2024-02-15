@@ -40,6 +40,22 @@ $(MODEM_CONFIG_FIXUP): $(TARGET_OUT_VENDOR)/etc/modemConfig/observe_config_encry
 	@echo "Move observe_config_encryt.bin to observe_config_encryt.xml"
 	$(hide) mv $(TARGET_OUT_VENDOR)/etc/modemConfig/observe_config_encryt.bin $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS) $(MODEM_CONFIG_FIXUP) $(VENDOR_NATIVE_PACKAGES_FIXUP)
+# Keymaster Hack
+KEYMASTER_SERVICE := $(TARGET_OUT_VENDOR)/bin/hw/android.hardware.keymaster@3.0-service.real
+$(KEYMASTER_SERVICE): $(TARGET_OUT_VENDOR)/bin/hw/android.hardware.keymaster@3.0-service.hisi
+	@echo "Relocate keymaster service"
+	$(hide) mv $(TARGET_OUT_VENDOR)/bin/hw/android.hardware.keymaster@3.0-service.hisi $(TARGET_OUT_VENDOR)/bin/hw/android.hardware.keymaster@3.0-service
+
+KEYMASTER_IMPL_32 := $(TARGET_OUT_VENDOR)/lib/hw/android.hardware.keymaster@3.0-impl.real.so
+$(KEYMASTER_IMPL_32): $(TARGET_OUT_VENDOR)/lib/hw/android.hardware.keymaster@3.0-impl.hisi.so
+	@echo "Relocate keymaster 32bit impl"
+	$(hide) mv $(TARGET_OUT_VENDOR)/lib/hw/android.hardware.keymaster@3.0-impl.hisi.so $(TARGET_OUT_VENDOR)/lib/hw/android.hardware.keymaster@3.0-impl.so
+
+KEYMASTER_IMPL_64 := $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.real.so
+$(KEYMASTER_IMPL_64): $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.hisi.so
+	@echo "Relocate keymaster 64bit impl"
+	$(hide) mv $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.hisi.so $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.so
+
+ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS) $(MODEM_CONFIG_FIXUP) $(VENDOR_NATIVE_PACKAGES_FIXUP) $(KEYMASTER_SERVICE) $(KEYMASTER_IMPL_32) $(KEYMASTER_IMPL_64)
 
 endif
