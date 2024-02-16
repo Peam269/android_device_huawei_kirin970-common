@@ -1,5 +1,3 @@
-on early-init
-
 on init
 	chmod 0660 /dev/deviceboxID
 	chown media media /dev/deviceboxID
@@ -31,11 +29,6 @@ on init
 	chown media media /dev/voice_proxy_ctl_dev
 	chmod 0660 /dev/codec_check
 	chown media media /dev/codec_check
-on early-fs
-
-on fs
-
-on post-fs
 
 on post-fs-data
 	chmod 0660 /dev/smartpakit
@@ -43,8 +36,6 @@ on post-fs-data
 	# for volteencrypt
 	chmod 0660 /dev/tf_agent
 	chown system system /dev/tf_agent
-
-on early-boot
 
 on boot
 	chmod 0660 /proc/key_mask
@@ -73,22 +64,3 @@ on boot
 	chmod 0660 /sys/class/dp/power/lcd_power
 	chown system system  /sys/class/dp/edid/edid_info
 	chmod 0660 /sys/class/dp/edid/edid_info
-
-## Property trigger
-#on property:ro.sample=*
-#    write /device/sample/sample_property ${ro.some_property}
-#    chmod 644 /device/sample/sample_device
-
-
-
-## Service definition
-#service sample /system/bin/sample
-#    class main
-#    user root
-#    group system log graphics
-#    socket sample stream 0660 system system
-#    disabled
-#    oneshot
-#    onrestart restart another_service
-
-

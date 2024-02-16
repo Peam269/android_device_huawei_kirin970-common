@@ -1,21 +1,9 @@
-on early-init
-
-on init
-
-on early-fs
-
-on fs
-
-on post-fs
-
 on post-fs-data
     mkdir /data/vendor/wifi 0771 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/vendor/log/wifi 0770 wifi system
     mkdir /data/vendor/bluedroid 0771 bluetooth bluetooth
-
-on early-boot
 
 on boot
     # z00142519 change permissions for bluetooth
@@ -73,11 +61,3 @@ on boot
     # rps function
     write /sys/class/net/wlan0/queues/rx-0/rps_cpus ff
     write /sys/class/net/wlan0/queues/rx-0/rps_flow_cnt 4096
-
-
-service wifi_wakeup_src /vendor/bin/wifiwakeupsrc
-    class core
-    user root
-    group root wifi
-    disabled
-    oneshot

@@ -12,15 +12,3 @@ on zygote-start
 	# so after the completion of the vold process started, mount_all modem partition and then boot modem.
 	mount_all /vendor/etc/fstab.modem
 	write /sys/devices/platform/his_modem/modem_sysboot_start 1
-
-on boot
-	chmod 0660 /dev/pmom
-	chown system system /dev/pmom
-	start pmom
-service pmom /vendor/bin/pmom_cat -d "bdat" -e s -f "/pmom/pmom-log" -g "/data/vendor/log" -r 10240 -z 3 -n 1
-	class late_start
-	user system
-	group root
-	disabled
-	seclabel u:r:pmom_cat:s0
-	oneshot

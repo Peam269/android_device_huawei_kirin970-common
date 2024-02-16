@@ -1,15 +1,4 @@
-on early-init
-
-on init
-
-on early-fs
-
-on fs
-
-on post-fs
-
 on post-fs-data
-
     mkdir /data/vendor/gps
     mkdir /data/vendor/log/gps_log
     chmod 775 /data/vendor/log/gps_log
@@ -47,8 +36,6 @@ on post-fs-data
     chmod 660 /data/vendor/gps/.pipe.gpsd_to_lhd.to_server
     chmod 660 /data/vendor/gps/.pipe.lppe.to_fd
     chmod 660 /data/vendor/gps/.pipe.lppe.to_gpsd
-
-on early-boot
 
 on boot
     # For serial port.

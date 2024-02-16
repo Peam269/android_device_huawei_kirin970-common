@@ -15,10 +15,6 @@ on init
     chmod 0400 /dev/memcg/protect_lru_2
     chmod 0400 /dev/memcg/protect_lru_3
 
-on early-fs
-
-on fs
-
 on post-fs
     chown system system /proc/uid_cputime/show_uid_stat
     chmod 0440 /proc/uid_cputime/show_uid_stat
@@ -132,14 +128,6 @@ on early-boot
 # modify c core reset file owner
     chown radio radio sys/devices/platform/balong_power/state
 
-# pstore/ramoops previous console log
-    chown root log /sys/fs/pstore/console-ramoops-0
-    chmod 0660 /sys/fs/pstore/console-ramoops-0
-    chown root log /sys/fs/pstore/dmesg-ramoops-0
-    chmod 0660 /sys/fs/pstore/dmesg-ramoops-0
-    chown root log /sys/fs/pstore/pmsg-ramoops-0
-    chmod 0660 /sys/fs/pstore/pmsg-ramoops-0
-
 on boot
     chown radio radio /proc/modemstatus
 
@@ -148,49 +136,6 @@ on data_ready
 
 on data_not_ready
     write /proc/data-ready 0
-
-## Property trigger
-#on property:ro.sample=*
-#    write /device/sample/sample_property ${ro.some_property}
-#    chmod 644 /device/sample/sample_device
-
-
-## Service definition
-#service sample /system/bin/sample
-#    class main
-#    user root
-#    group system log graphics
-#    socket sample stream 0660 system system
-#    disabled
-#    oneshot
-#    onrestart restart another_service
-#service ril-daemon /vendor/bin/hw/rild
-#    disabled
-#    class core
-
-#    user root
-#    group radio cache inet misc audio sdcard_r sdcard_rw log readproc system
-
-#service ril-daemon1 /vendor/bin/hw/rild -c 1
-#    disabled
-#    class core
-
-#    user root
-#    group radio cache inet misc audio sdcard_r sdcard_rw log
-
-#on property:init.svc.zygote=running
-#    start ril-daemon
-
-#on property:odm.rild.rild1_ready_to_start=true
-#    start ril-daemon1
-
-#add for create /data/vendor/hwcdump and add context
-on property:ro.build.type=eng
-    mkdir /data/vendor/hwcdump 0755 system system
-    restorecon_recursive /data/vendor/hwcdump
-
-on property:ro.build.type=eng
-    write /proc/sys/kernel/kptr_restrict 0
 
 on nonencrypted
     trigger custom_appvcom_init_retry

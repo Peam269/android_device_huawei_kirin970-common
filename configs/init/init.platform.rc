@@ -1,10 +1,7 @@
 on init
-
 #log
     chmod 0660 /dev/hwlog_switch
     chown logd system /dev/hwlog_switch
-
-on early-fs
 
 on fs
     restorecon       /sys/class/graphics/fb0/lcd_cabc_mode
@@ -14,7 +11,6 @@ on post-fs
     start storage_info
 
 on post-fs-data
-    
     chown root system /sys/kernel/exmbist_test/test_entry
     chmod 0664 /sys/kernel/exmbist_test/test_entry
 
@@ -399,10 +395,6 @@ on start_main_class
 on start_latestart_class
     class_start late_start
 
-on start_other_action
-    #lwx275552  DTS2016092904644 delete (start gpsdaemon)
-    exec /system/bin/start_110x_service.sh
-
 on nonencrypted
     trigger start_latestart_class
     trigger data_ready
@@ -439,14 +431,6 @@ service iked /system/vendor/bin/iked
 on property:ro.vendor.config.hw_vowifi=true
     start iked
 	
-## Service definition
-service logserver /system/bin/logserver
-    class late_start
-    user root
-    group system
-    oneshot
-    seclabel u:r:logserver:s0
-
 ## Service definition
 service imonitor /system/bin/imonitor
     class late_start
@@ -516,16 +500,6 @@ service powerlogd /system/bin/powerlogd
     socket powerlogdr seqpacket 0600 system system
     socket powerlogdw dgram 0220 system system
     writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks /dev/stune/system-background/tasks /dev/blkio/system-background/tasks
-
-#on property:debug.rt.ddr.test=1
-#    stop ddrtest
-#    start ddrtest
-#on property:debug.rt.ddr.test=2
-#    start ddrtest
-#on property:debug.rt.ddr.test=3
-#    start ddrtest
-#on property:debug.rt.ddr.test=4
-#    start stop_ddrtest
 
 service mapper /system/bin/sh /vendor/bin/mappersh
     class late_start

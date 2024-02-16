@@ -7,24 +7,15 @@
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
 
-on property:ro.vendor.user_hota_update=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1556000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1652000
-    write /dev/kmsg "first boot, user_hota_update = 1.  limit cpufreq."
-
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug/tracing
-    chmod 0222 /sys/kernel/debug/tracing/trace_marker
-    chmod 0775 /sys/kernel/debug
 
 on early-boot
     # Adjust parameters for dm-verity device
     write /sys/block/dm-0/queue/read_ahead_kb 2048
-	chown system system /sys/block/sdd/queue/usr_ctrl
+    chown system system /sys/block/sdd/queue/usr_ctrl
 
     # create Ext SDcard mountpoint
-    mkdir /mnt/media_rw 0750 media_rw media_rw
     mkdir /mnt/hisee_fs 0760 root system
 
     #irda
@@ -364,58 +355,17 @@ on property:sys.boot_completed=1
     write /sys/class/devfreq/ddrfreq_up_threshold/max_freq 1866000000
     write /sys/class/devfreq/ddrfreq_up_threshold/min_freq 1866000000
 
-on property:sys.boot_completed=1 && property:ro.vendor.user_hota_update=1
-    write /dev/kmsg "first boot completed, user_hota_update = 1. free cpufreq limit."
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 4294967295
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 4294967295
-
 on fs
     # mount mtd partitions
-
     mount_all /vendor/etc/fstab.${ro.hardware} --early
     swapon_all /vendor/etc/fstab.${ro.hardware}
 
-    restorecon /splash2
-    chmod 775 /splash2
-    chown root system /splash2
-
     mkdir /splash2/log 0775 system log
-    symlink /splash2 /log
-
-    # disable this, use sdcardfs
-    #service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
-    #class late_start
-
-    symlink /dev/block/platform/ff3c0000.ufs/by-name/kernel /dev/block/platform/ff3c0000.ufs/by-name/boot
-    symlink /dev/block/platform/ff3c0000.ufs/by-name/kernel /dev/block/platform/ff3c0000.ufs/by-name/recovery
-    symlink /dev/block/platform/ff3c0000.ufs/by-name/dto /dev/block/platform/ff3c0000.ufs/by-name/dtbo
-
+	
     symlink /dev/block/platform/ff3c0000.ufs /dev/block/bootdevice
 
 on late-fs
     mount_all /vendor/etc/fstab.${ro.hardware} --late
-
-on early-boot
-# add for GPU
-# AR0009KK8I j00181309 20180103 begin
-# quicker support according to GPU support vulkan or not.
-# DTS2018031604330 x00418005 20180316 begin
-# DTS2018040203845 x00418005 20180404 begin
-# setprop prop.quicker.enable false
-# DTS2018040203845 x00418005 20180404 end
-# DTS2018031604330 x00418005 20180316 end
-# AR0009KK8I j00181309 20180103 end
-
-on boot
-##To use software render:
-#set qemu=1 use libGLES_android.so;
-#set qemu.gles=0 use gralloc.default.so and hwcomposer.default.so;
-
-##To use hardware render:
-#set qemu=0  use libGLES_mali.so,
-#set qemu.gles=1 use gralloc.<platform>.so and hwcomposer.<platform>.so;
-#setprop ro.kernel.qemu 0
-#setprop ro.kernel.qemu.gles 1
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -438,27 +388,12 @@ on post-fs-data
     chown system system /sys/block/zram0/dedup_enable
     chown system system /sys/block/zram0/noncompress_enable
 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-on init
-
-#move to product's init.rc.
-on early-boot
-#   service HwCamCfgSvr /system/bin/HwCamCfgSvr kirin970 NEXT
-#	class main
-#	user media
-#	group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system
-
 on boot
 # add for flash
     chown system system /sys/bus/platform/drivers/huawei,camcfgdev/guard_thermal
     chown system system /sys/class/leds/torch/brightness
     chmod 664 /sys/class/leds/torch/brightness
-	restorecon /sys/class/leds/torch/brightness
+    restorecon /sys/class/leds/torch/brightness
     chown system system /sys/class/leds/torch/flash_thermal_protect
     chmod 664 /sys/class/leds/torch/flash_thermal_protect
     chown system system /sys/class/leds/torch_front/brightness
@@ -635,23 +570,23 @@ on boot
 	chown system system /sys/class/sensors/fingersense_sensor/fingersense_latch_data
 	chown system system /sys/class/sensors/fingersense_sensor/fingersense_req_data
 	chown system system /sys/class/sensors/ois_sensor/ois_ctrl
-	chown system system sys/class/sensors/cap_prox_sensor/calibrate
-	chown system system sys/class/sensors/cap_prox_sensor/calibrate_timeout
-	chown system system sys/class/sensors/cap_prox_sensor/cap_prox_calibrate_type
-	chown system system sys/class/sensors/cap_prox_sensor/cap_prox_calibrate_order
-	chown system system sys/class/sensors/cap_prox_sensor/sar_sensor_detect
-	chown system system sys/class/sensors/cap_prox_sensor/cap_prox_data_mode
-	chown system system sys/class/ap_sensor/color_sensor/calibrate_timeout
-	chown system system sys/class/ap_sensor/color_sensor/calibrate
-	chown media system sys/class/sensors/rpc_sensor/rpc_motion_req
-	chown system system sys/class/sensors/rpc_sensor/rpc_sar_service_req
+	chown system system /sys/class/sensors/cap_prox_sensor/calibrate
+	chown system system /sys/class/sensors/cap_prox_sensor/calibrate_timeout
+	chown system system /sys/class/sensors/cap_prox_sensor/cap_prox_calibrate_type
+	chown system system /sys/class/sensors/cap_prox_sensor/cap_prox_calibrate_order
+	chown system system /sys/class/sensors/cap_prox_sensor/sar_sensor_detect
+	chown system system /sys/class/sensors/cap_prox_sensor/cap_prox_data_mode
+	chown system system /sys/class/ap_sensor/color_sensor/calibrate_timeout
+	chown system system /sys/class/ap_sensor/color_sensor/calibrate
+	chown media system /sys/class/sensors/rpc_sensor/rpc_motion_req
+	chown system system /sys/class/sensors/rpc_sensor/rpc_sar_service_req
     chown system system /sys/devices/platform/huawei_sensorhub_logbuff/logbuff_config
     chmod 660 /sys/devices/platform/huawei_sensorhub_logbuff/logbuff_config
     chown system system /sys/devices/platform/huawei_sensorhub_logbuff/logbuff_flush
     chmod 444 /sys/devices/platform/huawei_sensorhub_logbuff/logbuff_flush
     chown system system /sys/class/sensors/libsensor_ver
     chown root system /proc/sensorhub_logbuff
-    chown system system sys/class/sensors/step_counter/step_counter_info
+    chown system system /sys/class/sensors/step_counter/step_counter_info
 
 # NFC
     chown nfc nfc /sys/nfc/nfc_fwupdate
@@ -855,27 +790,11 @@ service shex /system/bin/shex -p
     disabled
     oneshot
 
-#service kmsgcat_cp /sbin/kmsgcat -r 4096 -n 25 -i /dev/cshell_log -f /data/hwzd_logs/cp_log/modemlog/modemkmsg-log
-#    class late_start
-#    user root
-#    group system
-#    disabled
-#    seclabel u:r:hisilogcat:s0
-
-on data_ready
-    exec u:r:blkcginit:s0 root root -- /vendor/bin/sh /vendor/etc/blkcg_init.sh 0 0
-
 service datarply /vendor/bin/data_replay
     user system
     group system
     disabled
     oneshot
-
-# start datarply manually before selinux issue fixed
-#on property:ro.debuggable=1
-#    chmod 0660 /dev/playback
-#    chown system system /dev/playback
-#    start datarply
 
 on property:service.bootanim.exit=1
     write /proc/balong/stats/boot_time 1
