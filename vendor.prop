@@ -65,6 +65,7 @@ ro.comp.chipset_version=Chipset-boston 102.0.0.001(1ISW)
 
 # RIL
 ro.telephony.default_network=9,9
+persist.radio.dualltecap=1
 
 # Sensors
 use_sensorhub_labc=false
