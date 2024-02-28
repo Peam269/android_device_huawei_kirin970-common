@@ -1046,3 +1046,9 @@ vendor/etc/native_packages.xml:vendor/etc/native_packages.bin
 # Thermal
 -vendor/lib/hw/thermal.kirin970.so
 -vendor/lib64/hw/thermal.kirin970.so
+
+# Widevine - CLT-L29 102.0.0.225(C432E5R1P1) preavs
+-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|69c0b631a300d709076f2b0620e8024e11a53cb2
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|5b10ca8484359742d079879a9b4b9685e2f86432|7840d413be837217385a818cd5c23e7e7c7cfa39
+-vendor/lib/liboemcrypto.so|101b68c5fe6003357e090cfc12dcfb715a25c309
+-vendor/lib/libwvhidl.so|e002093ae2d49a93bcbed689d370fcf135cb2320

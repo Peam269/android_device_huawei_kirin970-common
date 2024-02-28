@@ -60,6 +60,12 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc)
+            sed -i '1,11d' "${2}"
+            sed -i 's/preavs/vendor/g' "${2}"
+            sed -i '16d' "${2}"
+            sed -i '10d' "${2}"
+            ;;
         vendor/etc/init/rild.rc)
             sed -i '7i on property:sys.rilprops_ready=1\n    start vendor.ril-daemon\n' "${2}"
             echo "    disabled" >> "${2}"
