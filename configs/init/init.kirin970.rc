@@ -378,6 +378,8 @@ on post-fs-data
     mkdir /data/vendor/nfc 0770 nfc nfc
     restorecon_recursive /data/vendor/nfc
 
+    mkdir /data/vendor/mediadrm 0770 mediadrm mediadrm
+
     chown system system /sys/block/zram0/idle
     chown system system /sys/block/zram0/writeback
     chown system system /sys/block/zram0/writeback_disable
