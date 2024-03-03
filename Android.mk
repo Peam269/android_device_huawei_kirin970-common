@@ -56,6 +56,12 @@ $(KEYMASTER_IMPL_64): $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3
 	@echo "Relocate keymaster 64bit impl"
 	$(hide) mv $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.hisi.so $(TARGET_OUT_VENDOR)/lib64/hw/android.hardware.keymaster@3.0-impl.so
 
-ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS) $(MODEM_CONFIG_FIXUP) $(VENDOR_NATIVE_PACKAGES_FIXUP) $(KEYMASTER_SERVICE) $(KEYMASTER_IMPL_32) $(KEYMASTER_IMPL_64)
+# odm ncfg dir
+ODM_NCFG_DIR := $(TARGET_OUT_ODM)/etc/ncfg
+$(ODM_NCFG_DIR):
+	@echo "Creating /odm/etc/ncfg"
+	$(hide) mkdir -p $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS) $(MODEM_CONFIG_FIXUP) $(VENDOR_NATIVE_PACKAGES_FIXUP) $(KEYMASTER_SERVICE) $(KEYMASTER_IMPL_32) $(KEYMASTER_IMPL_64) $(ODM_NCFG_DIR)
 
 endif

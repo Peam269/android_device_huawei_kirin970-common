@@ -1,2 +1,0 @@
-# Root
-/hw_odm(/.*)?                         u:object_r:hwodm_file:s0

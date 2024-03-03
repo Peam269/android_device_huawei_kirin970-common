@@ -364,6 +364,8 @@ on fs
 	
     symlink /dev/block/platform/ff3c0000.ufs /dev/block/bootdevice
 
+    mount none /odm/hw_odm/${ro.boot.product.hardware.sku}/ncfg /odm/etc/ncfg bind
+
 on late-fs
     mount_all /vendor/etc/fstab.${ro.hardware} --late
 

@@ -117,9 +117,6 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     sec_storage \
     splash2
 
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /odm/hw_odm:/hw_odm
-
 # SELinux
 include device/hisi/sepolicy/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
