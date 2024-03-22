@@ -225,6 +225,13 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr
 
+PRODUCT_PACKAGES += \
+    vendor.huawei.hardware.perfgenius@2.0.vendor
+
+PRODUCT_PACKAGES += \
+    libiawareperf_client \
+    libperfgenius_vendor_client
+
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
