@@ -46,6 +46,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1-service
 
+# Biometrics
+PRODUCT_PACKAGES += \
+    vendor.huawei.hardware.biometrics.fingerprint@2.2.vendor \
+    vendor.huawei.hardware.biometrics.hwfacerecognize@2.0.vendor \
+    vendor.huawei.hardware.biometrics.hwsecurefacerecognize@2.0.vendor
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/keylayout/fingerprint.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fingerprint.kl
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
@@ -78,13 +87,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Fastboot
 PRODUCT_PACKAGES += \
     fastbootd
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1.vendor
-
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/keylayout/fingerprint.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fingerprint.kl
 
 # Gatekeeper
 PRODUCT_PACKAGES += \

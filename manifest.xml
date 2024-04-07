@@ -293,15 +293,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.huawei.hardware.biometrics.hwsecurefacerecognize</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>ISecureBiometricsFaceRecognize</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.huawei.hardware.biometrics.hwvoiceid</name>
         <transport>hwbinder</transport>
         <version>2.1</version>
