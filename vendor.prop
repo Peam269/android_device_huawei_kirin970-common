@@ -63,6 +63,9 @@ ro.netflix.bsp_rev=KIRIN970-15244-1
 ro.kirin.product.platform=kirin970
 ro.comp.chipset_version=Chipset-boston 102.0.0.001(1ISW)
 
+# Power HAL
+vendor.powerhal.disp.idle_support=false
+
 # RIL
 ro.telephony.default_network=9,9
 persist.radio.dualltecap=1
