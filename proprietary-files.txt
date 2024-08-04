@@ -86,13 +86,9 @@ vendor/etc/init/vendor.huawei.hardware.camera.factory@1.1-service.rc
 -vendor/lib/vendor.huawei.hardware.camera.camResource.dceService@1.0.so
 -vendor/lib/vendor.huawei.hardware.camera.camResource.matcherService@1.0.so
 -vendor/lib/vendor.huawei.hardware.camera.camResource.orbService@1.0.so
--vendor/lib/vendor.huawei.hardware.camera.cfgsvr@1.0.so
--vendor/lib/vendor.huawei.hardware.camera.cfgsvr@1.1.so
 -vendor/lib/vendor.huawei.hardware.camera.factory@1.0.so
 -vendor/lib/vendor.huawei.hardware.camera.factory@1.1.so
 -vendor/lib/vendor.huawei.hardware.camera.vircamera@1.0.so
--vendor/lib/vendor.huawei.hardware.hwfactoryinterface@1.0.so
--vendor/lib/vendor.huawei.hardware.hwfactoryinterface@1.1.so
 -vendor/lib64/hw/CameraFactoryService.so
 -vendor/lib64/hw/hicam.hal.bz.so
 -vendor/lib64/hw/hicam.hal.service.so
@@ -188,13 +184,9 @@ vendor/etc/init/vendor.huawei.hardware.camera.factory@1.1-service.rc
 -vendor/lib64/vendor.huawei.hardware.camera.camResource.dceService@1.0.so
 -vendor/lib64/vendor.huawei.hardware.camera.camResource.matcherService@1.0.so
 -vendor/lib64/vendor.huawei.hardware.camera.camResource.orbService@1.0.so
--vendor/lib64/vendor.huawei.hardware.camera.cfgsvr@1.0.so
--vendor/lib64/vendor.huawei.hardware.camera.cfgsvr@1.1.so
 -vendor/lib64/vendor.huawei.hardware.camera.factory@1.0.so
 -vendor/lib64/vendor.huawei.hardware.camera.factory@1.1.so
 -vendor/lib64/vendor.huawei.hardware.camera.vircamera@1.0.so
--vendor/lib64/vendor.huawei.hardware.hwfactoryinterface@1.0.so
--vendor/lib64/vendor.huawei.hardware.hwfactoryinterface@1.1.so
 
 # Camera Configs
 vendor/etc/camera/bshutter/default/algo.xml

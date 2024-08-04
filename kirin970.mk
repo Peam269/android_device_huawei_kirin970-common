@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5.vendor \
     libstdc++.vendor
 
+PRODUCT_PACKAGES += \
+    vendor.huawei.hardware.camera.cfgsvr@1.1.vendor \
+    vendor.huawei.hardware.hwfactoryinterface@1.1.vendor
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images_vendor
