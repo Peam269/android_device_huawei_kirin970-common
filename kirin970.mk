@@ -291,6 +291,9 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
+PRODUCT_PACKAGES += \
+    vendor.huawei.hardware.hwvibrator@1.0.vendor
+
 # VNDK
 PRODUCT_PACKAGES += \
     libjsoncpp-v29 \
