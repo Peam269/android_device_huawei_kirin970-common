@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.hisi
+    android.hardware.light-service.huawei
 
 # Linker
 PRODUCT_COPY_FILES += \
@@ -151,12 +151,13 @@ PRODUCT_COPY_FILES += \
 
 # Livedisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service-hisi
+    vendor.lineage.livedisplay@2.1-service.hisi
 
 # Logging
 PRODUCT_PACKAGES += \
     libchrlog \
     libhwlog \
+    libimonitor \
     libxcollie
 
 # Media
@@ -222,7 +223,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.hisi-libperfmgr
+    android.hardware.power-service.huawei-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -250,7 +251,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/hisi \
-    hardware/hisi/power-libperfmgr
+    hardware/huawei \
+    hardware/huawei/power-libperfmgr
 
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
@@ -259,10 +261,6 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service
-
-# Touch
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.hisi
 
 # Trust
 PRODUCT_PACKAGES += \

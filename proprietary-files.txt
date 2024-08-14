@@ -840,7 +840,6 @@ vendor/etc/init/vendor.huawei.hardware.graphics.mediacomm@2.1-service.rc
 -vendor/lib/libhilog.so
 -vendor/lib/libhitrace.so
 -vendor/lib/libhiview.so
--vendor/lib/libimonitor.so
 -vendor/lib/libnvme.so
 -vendor/lib/liboeminfo.so
 -vendor/lib64/lib_device_interface.so
@@ -856,7 +855,6 @@ vendor/etc/init/vendor.huawei.hardware.graphics.mediacomm@2.1-service.rc
 -vendor/lib64/libhilog.so
 -vendor/lib64/libhitrace.so
 -vendor/lib64/libhiview.so
--vendor/lib64/libimonitor.so
 -vendor/lib64/libnvme.so
 -vendor/lib64/liboeminfo.so
 

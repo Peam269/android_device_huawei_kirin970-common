@@ -48,7 +48,7 @@ TARGET_RECOVERY_DEVICE_MODULES := init_hisi
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := hardware/hisi/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := hardware/huawei/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00078000
 BOARD_KERNEL_CMDLINE := loglevel=4 page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.super_partition=super androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz
@@ -99,10 +99,9 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/configs/init/fstab.kirin970
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_hisi
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := hardware/hisi/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := hardware/huawei/releasetools
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
