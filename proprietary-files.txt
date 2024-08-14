@@ -957,20 +957,11 @@ vendor/etc/init/rild.rc
 vendor/etc/seccomp_policy/mediacodec.policy
 
 # Sensors
--vendor/bin/hw/vendor.huawei.hardware.sensors@1.2-service
-vendor/etc/init/vendor.huawei.hardware.sensors@1.2-service.rc
 vendor/etc/SensorHub.patch
 -vendor/lib/hw/sensors.default.so:vendor/lib/hw/sensors.kirin970.so
 -vendor/lib/lib_sensor_fac_interface.so
--vendor/lib/vendor.huawei.hardware.sensors@1.0.so
--vendor/lib/vendor.huawei.hardware.sensors@1.1.so
--vendor/lib/vendor.huawei.hardware.sensors@1.2.so
 -vendor/lib64/hw/sensors.default.so:vendor/lib64/hw/sensors.kirin970.so
--vendor/lib64/hw/vendor.huawei.hardware.sensors@1.2-impl.so
 -vendor/lib64/lib_sensor_fac_interface.so
--vendor/lib64/vendor.huawei.hardware.sensors@1.0.so
--vendor/lib64/vendor.huawei.hardware.sensors@1.1.so
--vendor/lib64/vendor.huawei.hardware.sensors@1.2.so
 
 # Tee
 -vendor/bin/hw/vendor.huawei.hardware.libteec@3.0-service

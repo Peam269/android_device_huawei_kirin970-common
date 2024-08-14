@@ -695,15 +695,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.huawei.hardware.sensors</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>ISensors</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.huawei.hardware.tp</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
