@@ -765,17 +765,6 @@ vendor/etc/nlp.conf
 -vendor/lib64/libSR_opencl.so
 -vendor/lib64/libhiion.so
 
-# IR
-vendor/etc/ir_config
--vendor/lib/libAudioIrAccess.so
--vendor/lib/libhisiIrAccess.so
--vendor/lib/libhisi-set_regs.so
--vendor/lib64/hw/consumerir.kirin970.so
--vendor/lib64/libAudioIrAccess.so
--vendor/lib64/libhisiIrAccess.so
--vendor/lib64/libhisi-set_regs.so
--vendor/lib64/libir_driver_init.so
-
 # Keystore
 -vendor/bin/hw/android.hardware.keymaster@3.0-service:vendor/bin/hw/android.hardware.keymaster@3.0-service.hisi
 vendor/etc/init/android.hardware.keymaster@3.0-service.rc

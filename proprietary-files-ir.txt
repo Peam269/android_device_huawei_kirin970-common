@@ -1,0 +1,14 @@
+#
+# All unpinned blobs below are extracted from CLT-L29 102.0.0.225(C432E5R1P1)
+#
+
+# IR
+vendor/etc/ir_config
+-vendor/lib/libAudioIrAccess.so
+-vendor/lib/libhisiIrAccess.so
+-vendor/lib/libhisi-set_regs.so
+-vendor/lib64/hw/consumerir.kirin970.so
+-vendor/lib64/libAudioIrAccess.so
+-vendor/lib64/libhisiIrAccess.so
+-vendor/lib64/libhisi-set_regs.so
+-vendor/lib64/libir_driver_init.so
