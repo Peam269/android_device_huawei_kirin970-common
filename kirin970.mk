@@ -52,9 +52,6 @@ PRODUCT_PACKAGES += \
     vendor.huawei.hardware.biometrics.hwfacerecognize@2.0.vendor \
     vendor.huawei.hardware.biometrics.hwsecurefacerecognize@2.0.vendor
 
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/keylayout/fingerprint.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/fingerprint.kl
-
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
