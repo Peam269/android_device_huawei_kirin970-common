@@ -1,8 +1,7 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
-#
+# SPDX-FileCopyrightText: 2016 The CyanogenMod Project
+# SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -13,6 +12,8 @@ MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
+
+export TARGET_ENABLE_CHECKELF=false
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -31,25 +32,26 @@ SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        --only-common )
-                ONLY_COMMON=true
-                ;;
-        --only-target )
-                ONLY_TARGET=true
-                ;;
-        -n | --no-cleanup )
-                CLEAN_VENDOR=false
-                ;;
-        -k | --kang )
-                KANG="--kang"
-                ;;
-        -s | --section )
-                SECTION="${2}"; shift
-                CLEAN_VENDOR=false
-                ;;
-        * )
-                SRC="${1}"
-                ;;
+        --only-common)
+            ONLY_COMMON=true
+            ;;
+        --only-target)
+            ONLY_TARGET=true
+            ;;
+        -n | --no-cleanup)
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang)
+            KANG="--kang"
+            ;;
+        -s | --section)
+            SECTION="${2}"
+            shift
+            CLEAN_VENDOR=false
+            ;;
+        *)
+            SRC="${1}"
+            ;;
     esac
     shift
 done
@@ -61,28 +63,43 @@ fi
 function blob_fixup() {
     case "${1}" in
         vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc)
+            [ "$2" = "" ] && return 0
             sed -i '1,11d' "${2}"
             sed -i 's/preavs/vendor/g' "${2}"
             sed -i '16d' "${2}"
             sed -i '10d' "${2}"
             ;;
         vendor/etc/init/rild.rc)
+            [ "$2" = "" ] && return 0
             sed -i '7i on property:sys.rilprops_ready=1\n    start vendor.ril-daemon\n' "${2}"
-            echo "    disabled" >> "${2}"
+            echo "    disabled" >>"${2}"
             ;;
         vendor/lib*/hw/hwcomposer.kirin970.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libui.so" "libui-v28.so" "${2}"
             ;;
         vendor/lib*/libhiview.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libjsoncpp.so" "libjsoncpp-v29.so" "${2}"
             ;;
         vendor/lib64/libSmartAE.so)
+            [ "$2" = "" ] && return 0
             "${SIGSCAN}" -p "9F 02 0A B9" -P "1F 20 03 D5" -f "${2}"
             ;;
         vendor/lib*/libril-hisi.so)
+            [ "$2" = "" ] && return 0
             "${PATCHELF}" --set-soname "libril-hisi.so" "${2}"
             ;;
+        *)
+            return 1
+            ;;
     esac
+
+    return 0
+}
+
+function blob_fixup_dry() {
+    blob_fixup "$1" ""
 }
 
 if [ -z "${ONLY_TARGET}" ]; then
