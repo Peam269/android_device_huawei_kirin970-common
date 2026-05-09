@@ -753,8 +753,6 @@ vendor/etc/nlp.conf
 -vendor/lib/hw/hwcomposer.kirin970.so
 -vendor/lib/libOpenCL.so
 -vendor/lib/libhiion.so
--vendor/lib/libperfgenius_vendor_client.so
--vendor/lib/vendor.huawei.hardware.perfgenius@2.0.so
 -vendor/lib64/egl/libGLES_mali.so
 -vendor/lib64/hw/gralloc.kirin970.so
 -vendor/lib64/hw/hwcomposer.kirin970.so
