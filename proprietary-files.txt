@@ -33,11 +33,9 @@ vendor/etc/default_volume_tables.xml
 -vendor/lib64/soundfx/liboffloadvisualizer.so
 
 # Bluetooth
--vendor/lib/libbt-vendor.so
--vendor/lib64/libbt-vendor.so
-
-# Bluetooth Config
 vendor/etc/bluetooth/bt_vendor.conf
+-vendor/lib64/libbt-vendor-hisi.so
+-vendor/lib64/libbt-vendor.so:vendor/lib64/libbt-vendor-bcm.so
 
 # Camera
 -vendor/bin/hw/vendor.huawei.hardware.camera.factory@1.1-service

@@ -19,6 +19,9 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
+# Bluetooth
+BOARD_USES_LIBBT_WRAPPER := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := kirin970
 

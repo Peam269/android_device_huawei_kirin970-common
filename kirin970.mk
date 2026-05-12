@@ -46,6 +46,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1-service
 
+PRODUCT_PACKAGES += \
+    libbt-vendor
+
 # Biometrics
 PRODUCT_PACKAGES += \
     vendor.huawei.hardware.biometrics.fingerprint@2.2.vendor \
