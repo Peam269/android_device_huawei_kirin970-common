@@ -69,6 +69,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images_vendor
 
+# Connectivity
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(COMMON_PATH)/configs/connectivity/,$(TARGET_COPY_OUT_VENDOR)/etc/init/connectivity)
+
 # ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore
@@ -122,8 +126,7 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/fstab.modem:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.modem \
     $(COMMON_PATH)/configs/init/init.audio.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.audio.rc \
     $(COMMON_PATH)/configs/init/init.balong_modem.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.balong_modem.rc \
-    $(COMMON_PATH)/configs/init/init.connectivity.bcm4359.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.connectivity.bcm4359.rc \
-    $(COMMON_PATH)/configs/init/init.connectivity.gps.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.connectivity.gps.rc \
+    $(COMMON_PATH)/configs/init/init.connectivity.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.connectivity.bcm4359.rc \
     $(COMMON_PATH)/configs/init/init.device.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.device.rc \
     $(COMMON_PATH)/configs/init/init.hisi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hisi.rc \
     $(COMMON_PATH)/configs/init/init.hisi.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.hisi.usb.rc \
