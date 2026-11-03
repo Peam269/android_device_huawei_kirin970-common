@@ -52,6 +52,7 @@ TARGET_RECOVERY_DEVICE_MODULES := init_hisi
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/huawei/mkbootimg.mk
+BOARD_USES_UNILOADER := true
 BOARD_KERNEL_BASE := 0x00078000
 BOARD_KERNEL_CMDLINE := loglevel=4 page_tracker=on unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.super_partition=super androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz
